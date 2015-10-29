@@ -183,6 +183,9 @@ git log (all commits)
  
  
  git log -p filename #see the changes in each commit
+ 
+ 
+ git reflog show 
 
 _____________________________________________________________________________________
 

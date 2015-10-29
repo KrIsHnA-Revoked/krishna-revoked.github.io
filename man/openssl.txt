@@ -1,0 +1,46 @@
+=================== Create NEW privatePublicPair.pem
+
+openssl genrsa -out privatePublicPair.pem 1024
+
+=================== OR from a p12 file
+
+openssl pkcs12 -in Certificates.p12 -out converted-file.pem -nodes
+
+=================== PUBLIC KEY
+
+openssl rsa -in privatePublicPair.pem -pubout -outform PEM -out testpublic.pem
+
+openssl rsa -in privatePublicPair.pem -pubout -out pubkey.pem
+
+openssl rsa -in privatePublicPair.pem -pubout > mykey.pub
+
+=================== Certificate
+
+openssl req -new -x509 -key privatePublicPair.pem -out publickey.cer -days 365
+
+=================== PFX (includes all)
+
+openssl pkcs12 -export -out public_privatekey.pfx -inkey privatePublicPair.pem -in publickey.cer
+
+=================== Get Private and Public from PFX
+
+openssl pkcs12 -in public_privatekey.pfx -nocerts -out privateKey.pem
+
+openssl pkcs12 -in public_privatekey.pfx -clcerts -nokeys -out publicCert.pem
+
+=================== Remove passphrase from privateKey.pem
+
+openssl rsa -in privateKey.pem -out privateNoPass.pem
+
+REF ======================================
+
+https://www.npmjs.com/package/node-rsa
+
+http://www.openssl.org/docs/manmaster/apps/rsa.html
+
+http://serverfault.com/questions/9708/what-is-a-pem-file-and-how-does-it-differ-from-other-openssl-generated-key-file/9717#9717
+
+
+
+
+
