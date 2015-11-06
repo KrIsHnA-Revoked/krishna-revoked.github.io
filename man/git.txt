@@ -183,7 +183,7 @@ git log (all commits)
  
  
  git log -p filename #see the changes in each commit
- 
+ git log --pretty=format:"%an, %ar : %s" --author "jismy <jismy@toobler.com>"
  
  git reflog show 
 
