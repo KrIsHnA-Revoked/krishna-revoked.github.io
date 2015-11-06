@@ -231,3 +231,5 @@ http://blog.tplus1.com/blog/2011/09/23/undo-a-fast-forward-git-merge/
 http://stackoverflow.com/questions/5815448/how-to-just-undo-a-git-pull
 
 http://stackoverflow.com/questions/278192/view-the-change-history-of-a-file-using-git-versioning
+
+https://www.atlassian.com/git/tutorials/git-log/filtering-the-commit-history/
