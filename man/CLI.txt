@@ -19,10 +19,14 @@ nohup               - continue proocess after logs off.
  find . -type f -iname "*.jsx" # find in current folder
  find ~ -type d -exec chmod +x {} \;
  find ~ -type f \( -iname '*.mp3' -o -iname '*.ogg' \) > mynewplaylist.m3u
+ #find top 10 files in folder
+ find . -type f -printf '%s %p\n'| sort -nr | head -10 > ~/Desktop/top10.txt
+ #find top 10 folders/files
+ du -ak www | sort -nr | head -10 > ~/Desktop/top10.txt
 
-
-
-
+ #copy excluding folders
+rsync -av --exclude=node_modules /var/www /var/www_pure
+ 
 
 phonegap API
 ------------
@@ -64,6 +68,8 @@ db.auth('midhun', '192.168.2.49');
 
  mongodump --host 127.0.0.1 -d development --port 27017 --username user --password pass --out /opt/backup/mongodump-2013-10-07-1
  mongodump -d advisorfi --out /home/ec2-user/tempDump/
+ 
+ mongoexport --host localhost --db bueno --collection reservations --type=csv --out bueno.reservation.csv --fields bar_name,date,time,number_of_people,phone,type,zone,firstName,lastName,reserve_status,table_arrangement,table_appearance
 
  mongorestore  --drop --db abs --collection Localizations Localizations.bson
  #/home/toobler/Desktop/advisorfi contains all .json and .bson files.

@@ -110,6 +110,7 @@ _____________________________________________
   git diff --cached [--stat]
   git diff HEAD [--stat]
   git diff --stat
+  git diff --stat <sha1> <sha2>
 ____________________________________  
   
   git add (if you want to stash untracked files)
